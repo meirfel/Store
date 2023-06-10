@@ -3,6 +3,7 @@ import datetime
 import json
 from db_models.customer import CustomerColumns
 from db_models.customer import Customer
+from utils import encode_string
 
 app = Flask(__name__)
 
@@ -49,11 +50,11 @@ import psycopg2
 #
 #
 # def main():
-#     customer = Customer(id_number="12313121312", first_name="Yana", last_name="Feldman", email="yana627@gmail.com",
+#     customer = Customer(id_number="3", first_name="Yana", last_name="Feldman", email="yana627@gmail.com",
 #                         address="Beer Sheva, Livna 14/43", password="Yana1995", phone_number="0508482636")
-#     #customer.insert_new_customer()
-#    customer.sign_in(id_number='1', password="123456")
-
+#     customer.insert_new_customer()
+#     #customer.sign_in(id_number='1', password="123456")
+#
 #
 # if __name__ == '__main__':
 #     main()

@@ -57,7 +57,6 @@ class Customer:
         except Exception as err:
             logger.error(f"Couldn't add new customer due to: {err.args}")
 
-
     @staticmethod
     def sign_in(id_number: str, password: str) -> bool:
 
@@ -65,9 +64,9 @@ class Customer:
                           "vars": (id_number,)}
         data = DBConnection().execute_query(query_and_vars=query_and_vars)
         if data:
-            #if data[0][CustomerColumns.PASSWORD_INDEX] == utils.encode_string(password):
-            return True
-            #raise ValueError("Wrong Password")
+            if data[0][CustomerColumns.PASSWORD_INDEX] == utils.encode_string(password):
+                return True
+            raise ValueError("Wrong Password")
         raise ValueError(f"The Id number: {id_number} doesn't exists")
 
 
