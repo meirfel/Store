@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 import utils
+from common.logger import setup_app_logger
 from db_models.db_connection import DBConnection
-from log import logger
+
 
 
 @dataclass
@@ -40,33 +41,45 @@ class Customer:
         """ Validating user's input """
         # TODO validate user's input
 
+    # def insert_new_customer(self):
+    #     """ Creating a new user in the DB """
+    #     db_connection = DBConnection()
+    #     table_columns = ", ".join([CustomerColumns.CUSTOMER_ID, CustomerColumns.FIRST_NAME, CustomerColumns.LAST_NAME,
+    #                                CustomerColumns.EMAIL, CustomerColumns.PASSWORD, CustomerColumns.ADDRESS,
+    #                                CustomerColumns.PHONE])
+    #     query_and_vars = {"query": f"INSERT INTO {CustomerColumns.TABLE_NAME} ({table_columns}) "
+    #                                f"VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING {CustomerColumns.CUSTOMER_ID}",
+    #                       "vars": (self.id_number, self.first_name, self.last_name, self.email,
+    #                                utils.encode_string(self.password), self.address, self.phone_number)}
+    #     try:
+    #         data = db_connection.execute_query(query_and_vars=query_and_vars, commit=True)
+    #         print(f"Successfully inserted customer with id: {data[0][0]}, successfully")
+    #         logger.debug(f"Inserted customer with id: {data[0]}, successfully")
+    #     except Exception as err:
+    #         logger.error(f"Couldn't add new customer due to: {err.args}")
+
     def insert_new_customer(self):
-        """ Creating a new user in the DB """
-        db_connection = DBConnection()
-        table_columns = ", ".join([CustomerColumns.CUSTOMER_ID, CustomerColumns.FIRST_NAME, CustomerColumns.LAST_NAME,
-                                   CustomerColumns.EMAIL, CustomerColumns.PASSWORD, CustomerColumns.ADDRESS,
-                                   CustomerColumns.PHONE])
-        query_and_vars = {"query": f"INSERT INTO {CustomerColumns.TABLE_NAME} ({table_columns}) "
-                                   f"VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING {CustomerColumns.CUSTOMER_ID}",
-                          "vars": (self.id_number, self.first_name, self.last_name, self.email,
-                                   utils.encode_string(self.password), self.address, self.phone_number)}
-        try:
-            data = db_connection.execute_query(query_and_vars=query_and_vars, commit=True)
-            print(f"Successfully inserted customer with id: {data[0][0]}, successfully")
-            logger.debug(f"Inserted customer with id: {data[0]}, successfully")
-        except Exception as err:
-            logger.error(f"Couldn't add new customer due to: {err.args}")
+        if self.id_number == "5":
+            return True
+        raise Exception("This is a mcck")
+
+    # @staticmethod
+    # def sign_in(id_number: str, password: str) -> bool:
+    #     """ Validates user existence in the DB """
+    #     query_and_vars = {"query": f"SELECT * FROM {CustomerColumns.TABLE_NAME} WHERE {CustomerColumns.CUSTOMER_ID}=%s",
+    #                       "vars": (id_number,)}
+    #     data = DBConnection().execute_query(query_and_vars=query_and_vars)
+    #     if data:
+    #         if data[0][CustomerColumns.PASSWORD_INDEX] == utils.encode_string(password):
+    #             return data[0][CustomerColumns.FIRST_NAME_INDEX]
+    #         raise ValueError("Wrong Password")
+    #     raise ValueError(f"The Id number: {id_number} doesn't exists")
 
     @staticmethod
-    def sign_in(id_number: str, password: str) -> bool:
-
-        query_and_vars = {"query": f"SELECT * FROM {CustomerColumns.TABLE_NAME} WHERE {CustomerColumns.CUSTOMER_ID}=%s",
-                          "vars": (id_number,)}
-        data = DBConnection().execute_query(query_and_vars=query_and_vars)
-        if data:
-            if data[0][CustomerColumns.PASSWORD_INDEX] == utils.encode_string(password):
-                return True
-            raise ValueError("Wrong Password")
+    def sign_in(id_number: str, password: str) -> str:
+        """ Validates user existence in the DB """
+        if id_number == "3" and password == "123":
+            return "Meir"
         raise ValueError(f"The Id number: {id_number} doesn't exists")
 
 

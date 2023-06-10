@@ -1,5 +1,5 @@
 import base64
-
+from common.consts import VALID_REQUEST_PREFIX, INVALID_REQUEST_PREFIX
 
 def encode_string(string_to_encrypt) -> str:
     message_bytes = string_to_encrypt.encode('ascii')
@@ -26,3 +26,12 @@ def validate_string_contains_only_numbers(string: str):
         return True
     raise ValueError("Value should contain only numbers")
 
+
+def create_valid_response(message: str):
+    """ Return the message with the valid response in the beginning """
+    return f"{VALID_REQUEST_PREFIX} {message}"
+
+
+def create_invalid_response(message: str):
+    """ Return the message with the invalid response in the beginning """
+    return f"{INVALID_REQUEST_PREFIX} {message}"
