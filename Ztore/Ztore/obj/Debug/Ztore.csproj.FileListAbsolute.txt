@@ -1,0 +1,11 @@
+D:\My Documents\Ztore\Ztore\Ztore\bin\Debug\Ztore.exe.config
+D:\My Documents\Ztore\Ztore\Ztore\bin\Debug\Ztore.exe
+D:\My Documents\Ztore\Ztore\Ztore\bin\Debug\Ztore.pdb
+D:\My Documents\Ztore\Ztore\Ztore\obj\Debug\Ztore.csproj.AssemblyReference.cache
+D:\My Documents\Ztore\Ztore\Ztore\obj\Debug\Ztore.csproj.SuggestedBindingRedirects.cache
+D:\My Documents\Ztore\Ztore\Ztore\obj\Debug\Ztore.Properties.Resources.resources
+D:\My Documents\Ztore\Ztore\Ztore\obj\Debug\Ztore.csproj.GenerateResource.cache
+D:\My Documents\Ztore\Ztore\Ztore\obj\Debug\Ztore.csproj.CoreCompileInputs.cache
+D:\My Documents\Ztore\Ztore\Ztore\obj\Debug\Ztore.exe
+D:\My Documents\Ztore\Ztore\Ztore\obj\Debug\Ztore.pdb
+D:\My Documents\Ztore\Ztore\Ztore\obj\Debug\Ztore.Welcome.resources
